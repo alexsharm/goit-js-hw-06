@@ -13,10 +13,12 @@ class Storage {
     }
 
     removeItem(itemToRemove) {
-        this.#items.splice(this.#items.indexOf(itemToRemove), 1)
+        const indexOfItem = this.#items.indexOf(itemToRemove)
+        if (indexOfItem != -1) {
+            this.#items.splice(this.#items.indexOf(itemToRemove), 1)
+        }
     }
 }
-
 const storage = new Storage(['Nanitoids', 'Prolonger', 'Antigravitator'])
 console.log(storage.getItems()) // ["Nanitoids", "Prolonger", "Antigravitator"]
 storage.addItem('Droid')
